@@ -1,7 +1,7 @@
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   gem.name = "sitebootstrapper"
-  gem.homepage = "http://www.martintechlabs.com/sitebootstrapper"
+  gem.homepage = "https://github.com/martintechlabs/sitebootstrapper"
   gem.summary = %Q{The summary}
   gem.description = %Q{The Description}
   gem.email = "gustavo@martintechlabs.com"
