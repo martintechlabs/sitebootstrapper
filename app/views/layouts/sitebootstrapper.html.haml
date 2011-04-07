@@ -1,0 +1,37 @@
+!!!! 5
+%html
+  %head
+    %title Sitebootstrapper
+    = csrf_meta_tag
+  %body
+    #container
+      - if flash.length > 0
+        / flash messages
+        #flash_messages_container
+          #flash_messages
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :class => "notice #{name}" if msg.is_a?(String)
+            %br/
+        / flash messages
+      %p(style='clear:left;')=link_to 'Home', root_path
+      #user_login_box(style='float:right')
+        - if user_signed_in?
+          = image_tag(current_user.photo.url, :size => "40x40", :alt => "")
+          = current_user.full_name
+          \|
+          = link_to 'My info', edit_user_registration_path
+          \|
+          - if(session["admin_user_id"])
+            = link_to 'back to admin', return_to_admin_path
+            \|
+          - else
+            - if current_user.is_admin?
+              = link_to 'Admin', admin_users_path
+              \|
+          = link_to 'Sign out', destroy_user_session_path
+        - else
+          = link_to 'Sign up as User', new_user_registration_path
+          \|
+          = link_to 'Sign in as User', new_user_session_path
+      %div(style="clear:both")
+      = yield

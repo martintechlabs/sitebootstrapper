@@ -22,6 +22,16 @@ class SitebootstrapperGenerator < Rails::Generators::Base
   def create_routes
     route "devise_for :users"
     route "root :to => 'home#index'"
+    route %Q{
+  namespace :admin do
+    resources :users  do
+      member do
+        get :login_as, :resend_activation, :to_csv
+        post :make_admin
+      end
+    end
+  end
+}
   end
 
   def remove_public_index
