@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gustavo Gonzalez"]
-  s.date = %q{2011-04-06}
+  s.date = %q{2011-04-07}
   s.description = %q{The Description}
   s.email = %q{gustavo@martintechlabs.com}
   s.extra_rdoc_files = [
@@ -18,9 +18,12 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
+    "app/controllers/admin/admin_controller.rb",
+    "app/controllers/admin/users_controller.rb",
     "app/controllers/application_controller.rb",
     "app/controllers/home_controller.rb",
     "app/models/user.rb",
+    "app/views/admin/users/index.haml",
     "app/views/devise/confirmations/new.html.haml",
     "app/views/devise/mailer/confirmation_instructions.html.haml",
     "app/views/devise/mailer/reset_password_instructions.html.haml",
@@ -33,6 +36,7 @@ Gem::Specification.new do |s|
     "app/views/devise/shared/_links.haml",
     "app/views/devise/unlocks/new.html.haml",
     "app/views/home/index.html.haml",
+    "app/views/layouts/sitebootstrapper.html.haml",
     "config/initializers/default_mailer.rb",
     "config/initializers/devise.rb",
     "config/locales/devise.en.yml",
@@ -59,17 +63,20 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<devise>, [">= 0"])
       s.add_runtime_dependency(%q<dynamic_form>, [">= 0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 0"])
+      s.add_runtime_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
     else
       s.add_dependency(%q<devise>, [">= 0"])
       s.add_dependency(%q<dynamic_form>, [">= 0"])
       s.add_dependency(%q<paperclip>, [">= 0"])
+      s.add_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
       s.add_dependency(%q<haml>, [">= 0"])
     end
   else
     s.add_dependency(%q<devise>, [">= 0"])
     s.add_dependency(%q<dynamic_form>, [">= 0"])
     s.add_dependency(%q<paperclip>, [">= 0"])
+    s.add_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
     s.add_dependency(%q<haml>, [">= 0"])
   end
 end
