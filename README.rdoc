@@ -1,7 +1,7 @@
 = sitebootstrapper
 
 == Steps to use
-1. In your Gemfile add: gem "sitebootstrapper" :git => "git://github.com/martintechlabs/sitebootstrapper"
+1. In your Gemfile add: gem "sitebootstrapper", :git => "git://github.com/martintechlabs/sitebootstrapper"
 2. Run bundle install
 3. Run rake db:create
 4. Run rails g sitebootstrapper
