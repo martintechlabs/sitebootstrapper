@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gustavo Gonzalez"]
-  s.date = %q{2011-04-07}
+  s.date = %q{2011-04-08}
   s.description = %q{The Description}
   s.email = %q{gustavo@martintechlabs.com}
   s.extra_rdoc_files = [
@@ -22,6 +22,9 @@ Gem::Specification.new do |s|
     "app/controllers/admin/users_controller.rb",
     "app/controllers/application_controller.rb",
     "app/controllers/home_controller.rb",
+    "app/controllers/users/omniauth_callbacks_controller.rb",
+    "app/controllers/users/registrations_controller.rb",
+    "app/models/authentication.rb",
     "app/models/user.rb",
     "app/views/admin/users/index.haml",
     "app/views/devise/confirmations/new.html.haml",
@@ -43,6 +46,7 @@ Gem::Specification.new do |s|
     "config/routes.rb",
     "lib/generators/sitebootstrapper/sitebootstrapper_generator.rb",
     "lib/generators/sitebootstrapper/templates/migration.rb",
+    "lib/generators/sitebootstrapper/templates/omniauth.rb",
     "lib/sitebootstrapper.rb",
     "lib/sitebootstrapper/engine.rb",
     "public/images/default_user.png"
@@ -64,12 +68,16 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dynamic_form>, [">= 0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 0"])
       s.add_runtime_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
+      s.add_runtime_dependency(%q<faraday>, ["= 0.5.7"])
+      s.add_runtime_dependency(%q<oa-oauth>, [">= 0"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
     else
       s.add_dependency(%q<devise>, [">= 0"])
       s.add_dependency(%q<dynamic_form>, [">= 0"])
       s.add_dependency(%q<paperclip>, [">= 0"])
       s.add_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
+      s.add_dependency(%q<faraday>, ["= 0.5.7"])
+      s.add_dependency(%q<oa-oauth>, [">= 0"])
       s.add_dependency(%q<haml>, [">= 0"])
     end
   else
@@ -77,6 +85,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dynamic_form>, [">= 0"])
     s.add_dependency(%q<paperclip>, [">= 0"])
     s.add_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
+    s.add_dependency(%q<faraday>, ["= 0.5.7"])
+    s.add_dependency(%q<oa-oauth>, [">= 0"])
     s.add_dependency(%q<haml>, [">= 0"])
   end
 end
