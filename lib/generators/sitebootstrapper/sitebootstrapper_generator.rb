@@ -15,13 +15,18 @@ class SitebootstrapperGenerator < Rails::Generators::Base
     end
   end
 
+  def copy_omniauth_initializer
+    template "omniauth.rb", "config/initializers/omniauth.rb"
+  end
+
   def create_migration_file
     migration_template 'migration.rb', 'db/migrate/create_users.rb'
   end
 
   def create_routes
-    route "devise_for :users"
+    route "devise_for :users, :controllers => {:registrations => 'users/registrations'}"
     route "root :to => 'home#index'"
+    route "match '/auth/:provider/callback' => 'users/omniauth_callbacks#create'"
     route %Q{
   namespace :admin do
     resources :users  do

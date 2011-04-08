@@ -1,6 +1,9 @@
+require 'open-uri'
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  has_many :authentications
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me, :is_admin, :lat, :lng, :photo, :phone
@@ -25,7 +28,7 @@ class User < ActiveRecord::Base
   end
   
   def status
-    active? ? 'active' : 'pending'
+    active_for_authentication? ? 'active' : 'pending'
   end
 
   def full_name
@@ -36,4 +39,36 @@ class User < ActiveRecord::Base
     return ''
   end
 
+  def apply_omniauth(omniauth)
+    self.email = omniauth['user_info']['email'] if email.blank?
+    if (!omniauth['user_info']['first_name'].blank? && !omniauth['user_info']['last_name'].blank?)
+      first_name = omniauth['user_info']['first_name']
+      last_name = omniauth['user_info']['last_name']
+    elsif (!omniauth['user_info']['name'].blank?)
+      name_array = omniauth['user_info']['name'].split(' ')
+      first_name = name_array.first
+      last_name = name_array[1..name_array.length].join(' ')
+    end
+    self.first_name = first_name
+    self.last_name = last_name
+    set_photo_from_url(omniauth['user_info']['image'])
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+
+  def set_photo_from_url(image_url)
+    if self.photo_file_name.blank? || self.photo_file_name == 'default_user.pnh'
+      begin
+        io = open(URI.parse(image_url))
+        def io.original_filename; base_uri.path.split('/').last; end
+        if !io.original_filename.blank?
+          self.photo = io
+        end
+      rescue
+      end
+    end
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
 end

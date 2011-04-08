@@ -22,6 +22,13 @@ class CreateUsers < ActiveRecord::Migration
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     add_index :users, :confirmation_token,   :unique => true
+
+    create_table(:authentications) do |t|
+      t.integer :user_id, :null => false
+      t.string :provider, :null => false
+      t.string :uid, :null => false
+    end
+    add_index :authentications, [:provider, :uid], :unique => true, :name => :authentications_provider_uid_index
   end
 
   def self.down

@@ -21,6 +21,8 @@
           \|
           = link_to 'My info', edit_user_registration_path
           \|
+          = link_to 'Facebook', '/auth/facebook'
+          \|
           - if(session["admin_user_id"])
             = link_to 'back to admin', return_to_admin_path
             \|
@@ -33,5 +35,8 @@
           = link_to 'Sign up as User', new_user_registration_path
           \|
           = link_to 'Sign in as User', new_user_session_path
+          \|
+          = link_to 'Sign in with Facebook', '/auth/facebook'
+
       %div(style="clear:both")
       = yield
