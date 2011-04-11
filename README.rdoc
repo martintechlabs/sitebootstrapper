@@ -10,7 +10,7 @@
 7. This engine uses a layout called "sitebootstrapper" just to show some funcionality out of box. If you want to use another layout just change it in Application_Controller.
      class ApplicationController < ActionController::Base
        layout "application"
-8. If you want to allow your users to sign up with facebook then set the app keys in config/initializers/omniauth.rb
+8. If you want to allow your users to sign up with facebook, twitter or google apps then set the app keys in config/initializers/omniauth.rb
 == Contributing to sitebootstrapper
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet

@@ -1,4 +1,5 @@
 require 'omniauth/oauth'
+require 'omniauth/openid'
 require 'devise'
 require 'dynamic_form'
 require 'paperclip'

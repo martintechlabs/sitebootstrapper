@@ -12,6 +12,7 @@ class Users::OmniauthCallbacksController < ApplicationController
     else
       user = User.new
       user.apply_omniauth(omniauth)
+      user.confirm! if !user.email.blank?
       if user.save
         flash[:notice] = "Signed in successfully."
         sign_in_and_redirect(:user, user)

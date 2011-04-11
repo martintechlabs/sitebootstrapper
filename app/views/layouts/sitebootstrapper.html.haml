@@ -23,6 +23,10 @@
           \|
           = link_to 'Facebook', '/auth/facebook'
           \|
+          = link_to 'Twitter', '/auth/twitter'
+          \|
+          = link_to 'Google', '/auth/google_apps'
+          \|
           - if(session["admin_user_id"])
             = link_to 'back to admin', return_to_admin_path
             \|
@@ -37,6 +41,10 @@
           = link_to 'Sign in as User', new_user_session_path
           \|
           = link_to 'Sign in with Facebook', '/auth/facebook'
+          \|
+          = link_to 'Sign in with Twitter', '/auth/twitter'
+          \|
+          = link_to 'Sign in with Google', '/auth/google_apps'
 
       %div(style="clear:both")
       = yield
