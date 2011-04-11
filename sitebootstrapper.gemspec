@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gustavo Gonzalez"]
-  s.date = %q{2011-04-08}
+  s.date = %q{2011-04-11}
   s.description = %q{The Description}
   s.email = %q{gustavo@martintechlabs.com}
   s.extra_rdoc_files = [
@@ -40,6 +40,8 @@ Gem::Specification.new do |s|
     "app/views/devise/unlocks/new.html.haml",
     "app/views/home/index.html.haml",
     "app/views/layouts/sitebootstrapper.html.haml",
+    "app/views/users/registrations/edit.html.haml",
+    "app/views/users/registrations/new.html.haml",
     "config/initializers/default_mailer.rb",
     "config/initializers/devise.rb",
     "config/locales/devise.en.yml",
@@ -70,6 +72,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
       s.add_runtime_dependency(%q<faraday>, ["= 0.5.7"])
       s.add_runtime_dependency(%q<oa-oauth>, [">= 0"])
+      s.add_runtime_dependency(%q<oa-openid>, [">= 0"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
     else
       s.add_dependency(%q<devise>, [">= 0"])
@@ -78,6 +81,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
       s.add_dependency(%q<faraday>, ["= 0.5.7"])
       s.add_dependency(%q<oa-oauth>, [">= 0"])
+      s.add_dependency(%q<oa-openid>, [">= 0"])
       s.add_dependency(%q<haml>, [">= 0"])
     end
   else
@@ -87,6 +91,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<will_paginate>, ["~> 3.0.pre2"])
     s.add_dependency(%q<faraday>, ["= 0.5.7"])
     s.add_dependency(%q<oa-oauth>, [">= 0"])
+    s.add_dependency(%q<oa-openid>, [">= 0"])
     s.add_dependency(%q<haml>, [">= 0"])
   end
 end
