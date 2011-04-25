@@ -47,5 +47,21 @@ class Admin::UsersController < Admin::AdminController
     end
     send_data csv_string, :type => "text/csv; charset=utf-8; header=present", :filename => "user_accounts_#{Time.now.strftime("%m-%d-%Y")}.csv", :disposition => 'attachment'
   end
+
+  def chart_data
+    data = []
+    days_to_show = 90
+    (0..days_to_show).each do |offset|
+      day = Time.now - (days_to_show-offset).days
+      if(params[:type] == 'day')
+        count = User.count(:conditions => ['created_at >= ? and created_at <= ?', day.beginning_of_day, day.end_of_day])
+      elsif(params[:type] == 'sum')
+        count = User.count(:conditions => ['created_at <= ?', day.end_of_day])
+      end
+      data << [day.to_time.to_i * 1000, count]
+    end
+
+    render :json => {:type => params[:type], :data => data}
+  end
   
 end

@@ -9,7 +9,7 @@
 7. This engine uses a layout called "sitebootstrapper" just to show some funcionality out of box. If you want to use another layout just change it in Application_Controller.
      class ApplicationController < ActionController::Base
        layout "application"
-8. If you'd like to get a local copy of the view that sitebootstrapper users, run: rails g sitebootstrapper:views
+8. If you'd like to get a local copy of the view and public files that sitebootstrapper uses, run: rails g sitebootstrapper:views
 9. If you want to allow your users to sign up with facebook, twitter or google apps then set the app keys in config/initializers/omniauth.rb
 
 == Contributing to sitebootstrapper
