@@ -34,6 +34,9 @@ class SitebootstrapperGenerator < Rails::Generators::Base
         get :login_as, :resend_activation, :to_csv
         post :make_admin
       end
+      collection do
+        get :chart_data
+      end
     end
   end
 }
