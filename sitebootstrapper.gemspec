@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sitebootstrapper}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gustavo Gonzalez"]
@@ -52,7 +52,38 @@ Gem::Specification.new do |s|
     "lib/generators/sitebootstrapper/views_generator.rb",
     "lib/sitebootstrapper.rb",
     "lib/sitebootstrapper/engine.rb",
-    "public/images/default_user.png"
+    "public/images/default_user.png",
+    "public/javascripts/application.js",
+    "public/javascripts/flot/excanvas.min.js",
+    "public/javascripts/flot/jquery.colorhelpers.min.js",
+    "public/javascripts/flot/jquery.flot.crosshair.min.js",
+    "public/javascripts/flot/jquery.flot.fillbetween.min.js",
+    "public/javascripts/flot/jquery.flot.image.min.js",
+    "public/javascripts/flot/jquery.flot.min.js",
+    "public/javascripts/flot/jquery.flot.navigate.min.js",
+    "public/javascripts/flot/jquery.flot.pie.min.js",
+    "public/javascripts/flot/jquery.flot.resize.min.js",
+    "public/javascripts/flot/jquery.flot.selection.min.js",
+    "public/javascripts/flot/jquery.flot.stack.min.js",
+    "public/javascripts/flot/jquery.flot.symbol.min.js",
+    "public/javascripts/flot/jquery.flot.threshold.min.js",
+    "public/javascripts/jquery-1.5.2.min.js",
+    "public/javascripts/jquery-ui-1.8.12.custom.min.js",
+    "public/stylesheets/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_flat_10_000000_40x100.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png",
+    "public/stylesheets/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png",
+    "public/stylesheets/ui-lightness/images/ui-icons_222222_256x240.png",
+    "public/stylesheets/ui-lightness/images/ui-icons_228ef1_256x240.png",
+    "public/stylesheets/ui-lightness/images/ui-icons_ef8c08_256x240.png",
+    "public/stylesheets/ui-lightness/images/ui-icons_ffd27a_256x240.png",
+    "public/stylesheets/ui-lightness/images/ui-icons_ffffff_256x240.png",
+    "public/stylesheets/ui-lightness/jquery-ui-1.8.12.custom.css"
   ]
   s.homepage = %q{https://github.com/martintechlabs/sitebootstrapper}
   s.require_paths = ["lib"]
