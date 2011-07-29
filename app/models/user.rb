@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me, :is_admin, :lat, :lng, :photo, :phone
   
-  validates :email, :presence => true, :uniqueness => true, :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
-  validates :password, :presence => true, :confirmation => true, :length => { :within => 6..20 }, :if => Proc.new { |user| user.password.present? }
+  validates :email, :presence => true, :uniqueness => true, :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}, :if => :email_required?
+  validates :password, :presence => true, :confirmation => true, :length => { :within => 6..20 }, :if => :password_required?
   validates :first_name, :presence => true, :length => { :minimum => 2, :maximum => 100 }
   validates :last_name, :presence => true, :length => { :minimum => 2, :maximum => 100 }
   
@@ -70,5 +70,9 @@ class User < ActiveRecord::Base
 
   def password_required?
     (authentications.empty? || !password.blank?) && super
+  end
+
+  def email_required?
+    true
   end
 end
