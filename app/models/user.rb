@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true, :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}, :if => :email_required?
   validates :password, :presence => true, :confirmation => true, :length => { :within => 6..20 }, :if => :password_required?
   validates :first_name, :presence => true, :length => { :minimum => 2, :maximum => 100 }
-  validates :last_name, :presence => true, :length => { :minimum => 2, :maximum => 100 }
+  validates :last_name, :presence => true, :length => { :minimum => 2, :maximum => 100 }, :if => :last_name_required?
   
   has_attached_file :photo, {
       :url => "/system/:class/:attachment/:id/:style_:basename.:extension",
@@ -73,6 +73,10 @@ class User < ActiveRecord::Base
   end
 
   def email_required?
+    true
+  end
+
+  def last_name_required?
     true
   end
 end
