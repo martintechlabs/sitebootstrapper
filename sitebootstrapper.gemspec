@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gustavo Gonzalez"]
-  s.date = %q{2011-04-25}
+  s.date = %q{2011-09-19}
   s.description = %q{The Description}
   s.email = %q{gustavo@martintechlabs.com}
   s.extra_rdoc_files = [
@@ -89,10 +89,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
   s.summary = %q{The summary}
-  s.test_files = [
-    "test/helper.rb",
-    "test/test_sitebootstrapper.rb"
-  ]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
